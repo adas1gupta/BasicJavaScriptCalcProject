@@ -3,9 +3,9 @@
 }
 
 body {
-    margin: 0;
-    padding: 0;
-    font-family: monospace;
+    font-family: "Courier New", Courier, monospace;;
+    display: flex; /* add this to make sure elements in grid-template-areas don't stay completely away from each other */
+    justify-content: center; /* this actually puts your items to the center */
 }
 
 .page {
@@ -14,21 +14,130 @@ body {
     "answer-display answer-display"
     "grey-operands operations";
     grid-template-columns: 3fr 1fr;
+    width: 400px;
+    /* I set the operations width to 40. If I want 400px, I need to set operation width to 100px */
 }
 
 .answer-display {
+    background-color: black;
     grid-area: answer-display;
+    color: white;
+    text-align: right;
+    font-size: 40px;
+    padding: 20px 5px;
 }
 
 .grey-operands {
+    display: grid;
+    grid-template-areas: 
+    "first-row"
+    "second-row"
+    "third-row"
+    "fourth-row"
+    "fifth-row";
     grid-area: grey-operands;
 }
 
+.first-row {
+    display: grid;
+    grid-template-areas: 
+    "clear back";
+    grid-template-columns: 2fr 1fr;
+    grid-area: first-row;
+}
+
+.clear {
+    grid-area: clear;
+}
+.back {
+    grid-area: back;
+}
+
+.second-row {
+    display: grid;
+    grid-template-areas: 
+    "seven eight nine";
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-area: second-row;
+}
+.seven {
+    grid-area: seven;
+}
+.eight {
+    grid-area: eight;
+}
+.nine {
+    grid-area: nine;
+}
+
+.third-row {
+    display: grid;
+    grid-template-areas: 
+    "four five six";
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-area: third-row;
+}
+.four {
+    grid-area: four;
+}
+.five {
+    grid-area: five;
+}
+.six {
+    grid-area: six;
+}
+
+.fourth-row {
+    display: grid;
+    grid-template-areas: 
+    "one two three";
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-area: fourth-row;
+}
+.one {
+    grid-area: one;
+}
+.two {
+    grid-area: two;
+}
+.three {
+    grid-area: three;
+}
+
+.fifth-row {
+    display: grid;
+    grid-template-areas: 
+    "zero";
+    grid-area: fifth-row;
+}
+.zero {
+    grid-area: zero;
+}
+
 .operations {
+    grid-template-areas: 
+    "divide"
+    "multiply"
+    "subtract"
+    "add"
+    "equal";
+    grid-template-columns: 1fr;
     grid-area: operations;
 }
 
-button:hover {
-    color: white;
+.divide, .multiply, .subtract, .add, .equal {
+    background-color: orange;
+    width: 100px;
 }
 
+button {
+    background-color: #d8d9db;
+    color: black;
+    height: 100px;
+    border: none;
+    font-size: 40px;
+}
+
+button:hover {
+    background-color: #ebebeb;
+}
